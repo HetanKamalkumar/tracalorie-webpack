@@ -95,11 +95,12 @@ class App {
   // }
 
   _removeItem(type, e) {
+    // Use .closest() to check if the clicked element is inside a .delete button
     const deleteButton = e.target.closest('.delete');
 
     if (deleteButton) {
       if (confirm('Are you sure?')) {
-        const id = deleteButton.closest('.card').getAtrribute('data-id');
+        const id = deleteButton.closest('.card').getAttribute('data-id');
 
         type === 'meal'
           ? this._tracker.removeMeal(id)
